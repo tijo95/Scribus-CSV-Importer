@@ -4,6 +4,8 @@
 
 ## Description
 
+![Image depuis Google Drive](https://drive.google.com/uc?export=view&id=1x8VH7IZUgkjq13_qkyc6sXYDX112Kjma)
+
 Scribus CSV Importer is a Python application that provides a user-friendly interface for importing data from CSV files into Scribus. It simplifies the process of integrating external data into Scribus for document layout.
 
 Key Features:
@@ -12,6 +14,10 @@ Key Features:
 - Visualize the first three words of each line for quick reference.
 - Navigate through the CSV file easily.
 - Import individual lines or the entire file.
+
+  ![Mon Image](https://drive.google.com/uc?export=view&id=1gwLsS6UzZgYRSlcC8LjN7AroPAP6D0t2)
+
+
 
 ## Installation
 
