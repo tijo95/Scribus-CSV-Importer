@@ -133,26 +133,30 @@ def afficher_nombre_lignes():
 # Fonction pour mettre à jour l'affichage
 def mettre_a_jour_affichage():
     ligne_num = entree_ligne.get()
-    try:
-        ligne_num = int(ligne_num)
-        with open(csv_file, "r", encoding="utf-8") as file:
-            lines = file.readlines()
-            if 1 <= ligne_num <= len(lines):
-                ligne = lines[ligne_num - 1].strip()
-                mots = ligne.split()
-                if len(mots) >= 3:
-                    # Affichez les trois premiers mots sans mise en forme spéciale
-                    mots_affichage = " ".join(mots[:3])
-                    etiquette_mots.config(text=f" {mots_affichage} ...", fg="green", font=None)  # Texte noir, police par défaut
+    if ligne_num:
+        try:
+            ligne_num = int(ligne_num)
+            with open(csv_file, "r", encoding="utf-8") as file:
+                lines = file.readlines()
+                if 1 <= ligne_num <= len(lines):
+                    ligne = lines[ligne_num - 1].strip()
+                    mots = ligne.split()
+                    if len(mots) >= 3:
+                        # Affichez les trois premiers mots sans mise en forme spéciale
+                        mots_affichage = " ".join(mots[:3])
+                        etiquette_mots.config(text=f" {mots_affichage} ...", fg="green", font=None)  # Texte noir, police par défaut
+                    else:
+                        # Affichez tous les mots s'il y en a moins de trois
+                        etiquette_mots.config(text=f"Tous les mots: {' '.join(mots)}", fg="black", font=None)  # Texte noir, police par défaut
                 else:
-                    # Affichez tous les mots s'il y en a moins de trois
-                    etiquette_mots.config(text=f"Tous les mots: {' '.join(mots)}", fg="black", font=None)  # Texte noir, police par défaut
-            else:
-                # Affichez "ERREUR" en rouge sans mise en forme spéciale (police par défaut)
-                etiquette_mots.config(text="ERREUR", fg="red", font=None)
-    except ValueError:
-        # Affichez "ERREUR" en rouge sans mise en forme spéciale (police par défaut)
-        etiquette_mots.config(text="ERREUR", fg="red", font=None)
+                    # Affichez "ERREUR" en rouge sans mise en forme spéciale (police par défaut)
+                    etiquette_mots.config(text="ERREUR", fg="red", font=None)
+        except ValueError:
+            # Affichez "ERREUR" en rouge sans mise en forme spéciale (police par défaut)
+            etiquette_mots.config(text="ERREUR", fg="red", font=None)
+    else:
+        # Le champ est vide, donc effacez le texte d'affichage
+        etiquette_mots.config(text="")
 
 # Fonction pour afficher l'aide avec traduction
 def afficher_aide():
