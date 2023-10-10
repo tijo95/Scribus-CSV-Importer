@@ -232,7 +232,13 @@ def actualiser_boutons(event=None):
         else:
             bouton_importer_tout.config(state=tk.DISABLED)
         bouton_importer.config(state=tk.DISABLED)
-        bouton_sppr.config(state=tk.DISABLED)
+        
+        # Activer le bouton "Sppr" si le champ de saisie contient des caractères non numériques
+        if not est_chiffres(contenu_champ):
+            bouton_sppr.config(state=tk.NORMAL)
+        else:
+            bouton_sppr.config(state=tk.DISABLED)
+        
         bouton_plus.config(state=tk.NORMAL)
     elif contenu_champ.isdigit():
         bouton_importer.config(state=tk.NORMAL)
@@ -241,7 +247,7 @@ def actualiser_boutons(event=None):
         bouton_plus.config(state=tk.DISABLED)
     else:
         bouton_importer.config(state=tk.DISABLED)
-        bouton_sppr.config(state=tk.DISABLED)
+        bouton_sppr.config(state=tk.NORMAL)  # Activer le bouton "Sppr" lorsque des caractères non numériques sont présents
         bouton_importer_tout.config(state=tk.DISABLED)
         bouton_plus.config(state=tk.DISABLED)
         
