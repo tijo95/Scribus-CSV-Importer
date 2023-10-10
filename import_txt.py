@@ -97,6 +97,9 @@ def supprimer_champ():
     actualiser_boutons()
     etiquette_mots.config(text="")
 
+def est_chiffres(texte):
+    return texte.isdigit()
+
 # Fonction pour ouvrir le fichier CSV à partir d'une boîte de dialogue
 def ouvrir_fichier_csv():
     global csv_file
@@ -216,10 +219,16 @@ def importer_tout():
 # Fonction pour activer ou désactiver les boutons en fonction du contenu du champ et du nombre de lignes
 def actualiser_boutons(event=None):
     contenu_champ = entree_ligne.get()
+    nombre_lignes_presentes = etiquette_nombre_lignes.cget("text")
+    
     if contenu_champ == "":
+        if nombre_lignes_presentes and nombre_lignes_presentes != "":
+            # Activer le bouton "Importer Tout" si des lignes sont détectées
+            bouton_importer_tout.config(state=tk.NORMAL)
+        else:
+            bouton_importer_tout.config(state=tk.DISABLED)
         bouton_importer.config(state=tk.DISABLED)
         bouton_sppr.config(state=tk.DISABLED)
-        bouton_importer_tout.config(state=tk.NORMAL)
         bouton_plus.config(state=tk.NORMAL)
     elif contenu_champ.isdigit():
         bouton_importer.config(state=tk.NORMAL)
