@@ -252,6 +252,8 @@ def change_language(event):
     config["language"] = current_language
     save_config(config)
     update_interface_texts()
+    if entree_ligne.get():
+        bouton_importer_tout.config(state=tk.DISABLED)
 
 # Fonction pour ajouter 1 au champ et réactiver le bouton "Sppr"
 def ajouter_un():
