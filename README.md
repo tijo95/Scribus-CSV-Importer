@@ -14,9 +14,9 @@ Scribus CSV Importer is a Python application that provides a user-friendly inter
 
 Key Features:
 
-- Select and import CSV files into Scribus.
+- Select and import .txt files into Scribus.
 - Visualize the first three words of each line for quick reference.
-- Navigate through the CSV file easily.
+- Navigate through the .txt file easily.
 - Import individual lines or the entire file.
 
   ![Mon Image](https://drive.google.com/uc?export=view&id=1gwLsS6UzZgYRSlcC8LjN7AroPAP6D0t2)
@@ -35,7 +35,7 @@ Run the application:
 
 Open Scribus menu script.
 
-Open a CSV file by clicking the "Open .txt File" button.
+Open a file.txt file by clicking the "Open .txt File" button.
 
 Enter the line number you want to import.
 
