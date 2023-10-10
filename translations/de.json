@@ -1,0 +1,15 @@
+{
+        "title": "Scribus Importieren",
+		"lines_detected": "Erkannte Zeilen",
+        "input_label": "Zeilennummer zum Importieren",
+        "import_button": "Importieren",
+        "import_all_button": "Alles importieren",
+        "clear_button": "Löschen",
+        "open_file_button": "Datei öffnen .txt",
+        "help_button": "Hilfe",
+        "developer_label": "Von Tijo",
+        "error_label": "Fehler",
+        "invalid_line_number": "Ungültige Zeilennummer.",
+        "enter_valid_line_number": "Bitte geben Sie eine gültige Zeilennummer ein.",
+        "help": "Dieses Skript ermöglicht es Ihnen, Zeilen aus einer CSV-Datei (.txt) in Scribus zu importieren. Stellen Sie sicher, dass Sie Ihre Excel-Datei bereinigen und formatieren, bevor Sie Daten in die (.txt)-Datei importieren.\n\nVerwendung:\n1. Klicken Sie auf die Schaltfläche \"Datei öffnen .txt\", um eine (.txt)-Datei auszuwählen.\n2. Verwenden Sie die Schaltfläche \"+\", um die Navigation zu starten, ohne auf der Tastatur tippen zu müssen. Verwenden Sie die Pfeiltasten links (<---) und rechts (--->), um die Zeilennummer anzupassen.\n3. Die ersten drei Wörter der Zeile werden als Referenz angezeigt.\n4. Klicken Sie auf die Schaltfläche \"Importieren\", um die gesamte Zeile in Scribus in seinem Textfeld hinzuzufügen.\n5. Verwenden Sie die Schaltfläche \"Alles importieren\", um die gesamte Datei auf einmal zu importieren.\n6. Verwenden Sie die Schaltfläche \"Löschen\", um den Inhalt des Eingabefelds zu löschen.\n\nStellen Sie sicher, dass Scribus geöffnet ist und Sie ein aktives Scribus-Dokument haben, bevor Sie Zeilen importieren."
+    }

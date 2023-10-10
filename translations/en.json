@@ -1,0 +1,15 @@
+{
+    "title": "Scribus Import",
+	"lines_detected": "Lines detected",
+    "input_label": "Line Number to Import",
+    "import_button": "Import",
+    "import_all_button": "Import All",
+    "clear_button": "Clear",
+    "open_file_button": "Open .txt File",
+    "help_button": "Help",
+    "developer_label": "By Tijo",
+    "error_label": "Error",
+    "invalid_line_number": "Invalid line number.",
+    "enter_valid_line_number": "Please enter a valid line number.",
+    "help": "This script allows you to import lines from a CSV file (.txt) into Scribus. Make sure to clean and format your Excel file before importing data into the (.txt) file.\n\nUsage:\n1. Click the \"Open .txt File\" button to select a (.txt) file.\n2. Use the \"+\" button to start navigation without needing to type on the keyboard. Use the left (<---) and right (--->) arrow buttons to adjust the line number.\n3. The first three words of the line will be displayed as a reference.\n4. Click the \"Import\" button to add the complete line to Scribus in its text frame.\n5. Use the \"Import All\" button to import the entire file at once.\n6. Use the \"Clear\" button to clear the contents of the input field.\n\nMake sure Scribus is open and you have an active Scribus document before importing lines."
+}
