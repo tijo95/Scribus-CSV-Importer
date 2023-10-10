@@ -1,12 +1,10 @@
 # Scribus-CSV-Importer
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # New Features
 
 - Added support for multiple languages, including French, English, Spanish...
 - Added buttons for easy navigation between lines in the file.
-
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
