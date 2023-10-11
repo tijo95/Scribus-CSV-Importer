@@ -1,15 +1,15 @@
 {
-        "title": "Scribus İçe Aktarma",
-		"lines_detected": "Tespit edilen satırlar",
-        "input_label": "İçe aktarılacak satır numarası",
-        "import_button": "İçe Aktar",
-        "import_all_button": "Tümünü İçe Aktar",
-        "clear_button": "Temizle",
-        "open_file_button": ".txt Dosyası Aç",
-        "help_button": "Yardım",
-        "developer_label": "Tijo tarafından geliştirildi",
-        "error_label": "Hata",
-        "invalid_line_number": "Geçersiz satır numarası.",
-        "enter_valid_line_number": "Geçerli bir satır numarası girin.",
-        "help": "Bu betik, bir CSV dosyasından (.txt) Scribus'a satırları içe aktarmanıza olanak tanır. Verileri (.txt) dosyasına içe aktarmadan önce Excel dosyanızı temizlediğinizden ve biçimlendirdiğinizden emin olun.\n\nKullanım:\n1. \" .txt Dosyasını Aç \" düğmesini tıklayarak bir dosya (.txt) seçin.\n2. Klavyeye yazmadan gezinmeye başlamak için \"+\" düğmesini kullanın. Satır numarasını düzeltmek için sol (<---) ve sağ (--->) ok düğmelerini kullanın.\n3. Satırın ilk üç kelimesi bir işaret olarak görüntülenir.\n4. Bir satırın tamamını Scribus'un metin çerçevesine eklemek için \"İçe Aktar\" düğmesini tıklayın.\n5. Tüm dosyayı tek seferde içe aktarmak için \"Tümünü İçe Aktar\" düğmesini kullanın.\n6. Giriş alanının içeriğini temizlemek için \"Temizle\" düğmesini kullanın.\n\nScribus'un açık ve etkin bir Scribus belgenizin olduğundan emin olun."
-    }
+    "title": "Scribus İçe Aktarma",
+    "lines_detected": "Tespit edilen satırlar",
+    "input_label": "İçe aktarılacak satır numarası",
+    "import_button": "İçe Aktar",
+    "import_all_button": "Tümünü İçe Aktar",
+    "clear_button": "Temizle",
+    "open_file_button": "Dosyası Aç",
+    "help_button": "Yardım",
+    "developer_label": "Tijo tarafından geliştirildi",
+    "error_label": "Hata",
+    "invalid_line_number": "Geçersiz satır numarası.",
+    "enter_valid_line_number": "Geçerli bir satır numarası girin.",
+    "help": "Bu betik, bir CSV dosyasından (.txt) Scribus'a satırları içe aktarmanıza olanak tanır. Verileri (.txt) dosyasına içe aktarmadan önce Excel dosyanızı temizlediğinizden ve biçimlendirdiğinizden emin olun.\n\nKullanım:\n1. \".txt Dosyası Aç\" düğmesini tıklayarak bir dosya (.txt) seçin.\n2. Klavyeye yazmadan gezinmeye başlamak için \"+\" düğmesini kullanın. Satır numarasını düzeltmek için sol (<---) ve sağ (--->) ok düğmelerini kullanın.\n3. Satırın ilk üç kelimesi bir işaret olarak görüntülenir.\n4. Bir satırın tamamını Scribus'un metin çerçevesine eklemek için \"İçe Aktar\" düğmesini tıklayın.\n5. Tüm dosyayı tek seferde içe aktarmak için \"Tümünü İçe Aktar\" düğmesini kullanın.\n6. Giriş alanının içeriğini temizlemek için \"Temizle\" düğmesini kullanın.\n\nScribus'un açık ve etkin bir Scribus belgenizin olduğundan emin olun."
+}
