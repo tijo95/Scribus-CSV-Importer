@@ -150,10 +150,10 @@ def mettre_a_jour_affichage():
                         etiquette_mots.config(text=f"Tous les mots: {' '.join(mots)}", fg="black", font=None)  # Texte noir, police par défaut
                 else:
                     # Affichez "ERREUR" en rouge sans mise en forme spéciale (police par défaut)
-                    etiquette_mots.config(text="ERREUR", fg="red", font=None)
+                    etiquette_mots.config(text=get_translation("error_label"), fg="red", font=None)
         except ValueError:
             # Affichez "ERREUR" en rouge sans mise en forme spéciale (police par défaut)
-            etiquette_mots.config(text="ERREUR", fg="red", font=None)
+            etiquette_mots.config(text=get_translation("error_label"), fg="red", font=None)
     else:
         # Le champ est vide, donc effacez le texte d'affichage
         etiquette_mots.config(text="")
@@ -262,6 +262,7 @@ def update_interface_texts():
     bouton_aide.config(text=get_translation("help_button"))
     etiquette_developpe_par.config(text=get_translation("developer_label"))
     etiquette_nombre_lignes.config(text=get_translation("line_count_label"))
+    etiquette_mots.config(text=get_translation("error_label"))
     afficher_nombre_lignes()
 
 # Lorsque l'utilisateur change la langue, enregistrez-la dans les préférences
