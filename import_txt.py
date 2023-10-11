@@ -194,6 +194,32 @@ def decrementer_ligne():
     except ValueError:
         pass
 
+# Fonction pour incrémenter le numéro de ligne en continu lorsque la flèche droite est maintenue enfoncée
+def incrementer_continu():
+    try:
+        ligne_num = int(entree_ligne.get())
+        with open(csv_file, "r", encoding="utf-8") as file:
+            lines = file.readlines()
+            if ligne_num < len(lines):
+                ligne_num += 1
+                entree_ligne.delete(0, tk.END)
+                entree_ligne.insert(0, str(ligne_num))
+                mettre_a_jour_affichage()
+    except ValueError:
+        pass
+
+# Fonction pour décrémenter le numéro de ligne en continu lorsque la flèche gauche est maintenue enfoncée
+def decrementer_continu():
+    try:
+        ligne_num = int(entree_ligne.get())
+        if ligne_num > 1:
+            ligne_num -= 1
+            entree_ligne.delete(0, tk.END)
+            entree_ligne.insert(0, str(ligne_num))
+            mettre_a_jour_affichage()
+    except ValueError:
+        pass
+
 # Fonction pour importer tout le fichier CSV dans un cadre texte
 def importer_tout():
     global y
@@ -334,12 +360,12 @@ etiquette_mots.pack(pady=2)
 cadre_boutons_deplacement = tk.Frame(fenetre)
 cadre_boutons_deplacement.pack()
 
-# Bouton pour décrémenter le numéro de ligne
-bouton_decrementer = tk.Button(cadre_boutons_deplacement, text="<------", command=decrementer_ligne, height=1)
+# Bouton pour décrémenter le numéro de ligne en continu
+bouton_decrementer = tk.Button(cadre_boutons_deplacement, text="<------", command=decrementer_continu, repeatdelay=500, repeatinterval=100, height=1)
 bouton_decrementer.pack(side=tk.LEFT, padx=2)
 
-# Bouton pour incrémenter le numéro de ligne
-bouton_incrementer = tk.Button(cadre_boutons_deplacement, text="------>", command=incrementer_ligne, height=1)
+# Bouton pour incrémenter le numéro de ligne en continu
+bouton_incrementer = tk.Button(cadre_boutons_deplacement, text="------>", command=incrementer_continu, repeatdelay=500, repeatinterval=100, height=1)
 bouton_incrementer.pack(side=tk.LEFT, padx=2)
 
 # Bouton pour importer une ligne
