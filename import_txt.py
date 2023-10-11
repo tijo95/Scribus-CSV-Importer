@@ -164,61 +164,32 @@ def afficher_aide():
     # Ouvrez une boîte de dialogue avec le texte d'aide traduit
     scribus.messageBox(get_translation("help_button"), help_text)
 
-# Fonction pour incrémenter le numéro de ligne
-def incrementer_ligne():
+# Fonction pour incrémenter
+def modifier_ligne(delta):
     ligne_num = entree_ligne.get()
     try:
         ligne_num = int(ligne_num)
         with open(csv_file, "r", encoding="utf-8") as file:
             lines = file.readlines()
-            if ligne_num < len(lines):
-                ligne_num += 1
-                entree_ligne.delete(0, tk.END)  # Effacez l'ancien numéro
-                entree_ligne.insert(0, str(ligne_num))  # Mettez à jour le champ de saisie
-
-                # Appel pour mettre à jour les trois premiers mots
-                mettre_a_jour_affichage()
-    except ValueError:
-        pass
-
-# Fonction pour décrémenter le numéro de ligne
-def decrementer_ligne():
-    ligne_num = entree_ligne.get()
-    try:
-        ligne_num = int(ligne_num)
-        if ligne_num > 1:
-            ligne_num -= 1
-            entree_ligne.delete(0, tk.END) 
-            entree_ligne.insert(0, str(ligne_num)) 
-            mettre_a_jour_affichage()
-    except ValueError:
-        pass
-
-# Fonction pour incrémenter le numéro de ligne en continu lorsque la flèche droite est maintenue enfoncée
-def incrementer_continu():
-    try:
-        ligne_num = int(entree_ligne.get())
-        with open(csv_file, "r", encoding="utf-8") as file:
-            lines = file.readlines()
-            if ligne_num < len(lines):
-                ligne_num += 1
+            if 1 <= ligne_num + delta <= len(lines):
+                ligne_num += delta
                 entree_ligne.delete(0, tk.END)
                 entree_ligne.insert(0, str(ligne_num))
                 mettre_a_jour_affichage()
     except ValueError:
         pass
 
-# Fonction pour décrémenter le numéro de ligne en continu lorsque la flèche gauche est maintenue enfoncée
+def incrementer_ligne():
+    modifier_ligne(1)
+
+def decrementer_ligne():
+    modifier_ligne(-1)
+
+def incrementer_continu():
+    modifier_ligne(1)
+
 def decrementer_continu():
-    try:
-        ligne_num = int(entree_ligne.get())
-        if ligne_num > 1:
-            ligne_num -= 1
-            entree_ligne.delete(0, tk.END)
-            entree_ligne.insert(0, str(ligne_num))
-            mettre_a_jour_affichage()
-    except ValueError:
-        pass
+    modifier_ligne(-1)
 
 # Fonction pour importer tout le fichier CSV dans un cadre texte
 def importer_tout():
