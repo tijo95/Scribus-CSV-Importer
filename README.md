@@ -4,8 +4,8 @@
 # New Features
 
 11/10/2023: direct management of .csv and .txt files.
-                   New: improved line navigation with arrow buttons.
-                   minor code correction.
+                   - improved line navigation with arrow buttons.
+                   - minor code correction.
 
 - Added support for multiple languages, including French, English, Spanish...
 - Added buttons for easy navigation between lines in the file.
