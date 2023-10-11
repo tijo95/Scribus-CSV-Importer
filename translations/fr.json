@@ -1,15 +1,15 @@
 {
     "title": "Importation Scribus",
-	"lines_detected": "Lignes détectées",
+    "lines_detected": "Lignes détectées",
     "input_label": "Numéro de ligne à importer",
     "import_button": "Importer",
     "import_all_button": "Importer Tout",
     "clear_button": "Sppr",
-    "open_file_button": "Ouvrir fichier .txt",
+    "open_file_button": "Ouvrir fichier",
     "help_button": "Aide",
     "developer_label": "Par Tijo",
     "error_label": "Erreur",
     "invalid_line_number": "Numéro de ligne invalide.",
     "enter_valid_line_number": "Veuillez entrer un numéro de ligne valide.",
-    "help": "Ce script permet d'importer des lignes à partir d'un fichier CSV (.txt) dans Scribus. Assurez-vous de nettoyer et de formater votre fichier Excel avant d'importer les données dans le fichier (.txt).\n\nUtilisation :\n1. Cliquez sur le bouton \"Ouvrir fichier .txt\" pour sélectionner un fichier (.txt).\n2. Utilisez le bouton \"+\" pour démarrer la navigation sans avoir besoin de taper au clavier. Utilisez les boutons flèches gauche (<---) et droite (--->) pour ajuster le numéro de ligne.\n3. Les trois premiers mots de la ligne seront affichés comme repère.\n4. Cliquez sur le bouton \"Importer\" pour ajouter la ligne complète à Scribus dans son cadre texte.\n5. Utilisez le bouton \"Importer Tout\" pour importer tout le fichier en une seule fois.\n6. Utilisez le bouton \"Sppr\" pour supprimer le contenu du champ de saisie.\n\nAssurez-vous que Scribus est ouvert et que vous avez un document Scribus actif avant d'importer des lignes."
+    "help": "Ce script permet d'importer des lignes à partir d'un fichier .txt ou .csv dans Scribus. Assurez-vous de nettoyer et de formater votre fichier Excel avant d'importer les données dans le fichier .txt ou .csv.\n\nUtilisation :\n1. Cliquez sur le bouton \"Ouvrir fichier .\" pour sélectionner un fichier .txt ou .csv.\n2. Utilisez le bouton \"+\" pour démarrer la navigation sans avoir besoin de taper au clavier. Utilisez les boutons flèches gauche (<---) et droite (--->) pour ajuster le numéro de ligne.\n3. Les trois premiers mots de la ligne seront affichés comme repère.\n4. Cliquez sur le bouton \"Importer\" pour ajouter la ligne complète à Scribus dans son cadre texte.\n5. Utilisez le bouton \"Importer Tout\" pour importer tout le fichier en une seule fois.\n6. Utilisez le bouton \"Sppr\" pour supprimer le contenu du champ de saisie.\n\nAssurez-vous que Scribus est ouvert et que vous avez un document Scribus actif avant d'importer des lignes."
 }
