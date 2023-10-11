@@ -7,25 +7,23 @@ import json
 # Obtenez le répertoire actuel du script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Définir la fonction pour charger la configuration utilisateur
 def load_config():
     config = {}
     config_file = os.path.join(script_dir, "config.json")
     if os.path.exists(config_file):
         with open(config_file, "r", encoding="utf-8") as conf_file:
-            # Ajoutez une vérification pour vous assurer que le fichier n'est pas vide
             file_content = conf_file.read()
-            if file_content.strip():  # Vérifiez si le contenu n'est pas vide
+            if file_content.strip():
                 config = json.loads(file_content)
     return config
 
-# Définir la fonction pour sauvegarder la configuration utilisateur
+
 def save_config(config):
     config_file = os.path.join(script_dir, "config.json")
     with open(config_file, "w", encoding="utf-8") as conf_file:
         json.dump(config, conf_file, indent=4)
 
-# Chemin vers le fichier CSV sur le bureau
+
 csv_file = ""
 
 # Coordonnées initiales pour le cadre texte
@@ -37,7 +35,6 @@ largeur, hauteur = 35, 35
 # Obtenez le répertoire actuel où se trouve ce script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Liste des langues disponibles
 languages = ["fr", "en", "es", "de", "tr", "ru"]
 
 # Chemin complet vers le répertoire contenant les fichiers JSON de traduction
@@ -71,17 +68,13 @@ def importer_ligne():
             if 1 <= ligne_num <= len(lines):
                 ligne = lines[ligne_num - 1]
 
-                # Créez un cadre de texte dans Scribus avec les dimensions spécifiées
                 text_frame = scribus.createText(x, y, largeur, hauteur)
 
-                # Insérez la ligne nettoyée dans le cadre de texte
                 ligne_actuelle = ligne.strip()
                 scribus.setText(ligne_actuelle, text_frame)
 
-                # Mettez à jour la position verticale pour la prochaine ligne
                 y += hauteur + 10
 
-                # Vérifiez si le cadre texte dépasse la hauteur de la page, et passez à la page suivante si nécessaire
                 hauteur_page = scribus.getPageHeight()
                 if y + hauteur > hauteur_page:
                     y = 20
@@ -103,7 +96,7 @@ def est_chiffres(texte):
 # Fonction pour ouvrir le fichier CSV à partir d'une boîte de dialogue
 def ouvrir_fichier_csv():
     global csv_file
-    csv_file = filedialog.askopenfilename(filetypes=[("Fichiers texte", "*.txt")])
+    csv_file = filedialog.askopenfilename(filetypes=[("Fichiers texte et CSV", "*.txt;*.csv")])
     if csv_file:
         entree_ligne.config(state=tk.NORMAL)
         bouton_plus.config(state=tk.NORMAL)
@@ -121,13 +114,11 @@ def afficher_nombre_lignes():
         nombre_lignes = len(lines)
         texte_lignes_detectees = get_translation("lines_detected")
         etiquette_nombre_lignes.config(text=f"({nombre_lignes}) {texte_lignes_detectees}", fg="blue")
-        # Mettez à jour l'état du bouton "Importer Tout" en fonction du nombre de lignes
         if nombre_lignes > 0:
             bouton_importer_tout.config(state=tk.NORMAL)
         else:
             bouton_importer_tout.config(state=tk.DISABLED)
     else:
-        # Si aucun fichier n'est ouvert, laissez le texte vide
         etiquette_nombre_lignes.config(text="")
 
 # Fonction pour mettre à jour l'affichage
@@ -142,25 +133,20 @@ def mettre_a_jour_affichage():
                     ligne = lines[ligne_num - 1].strip()
                     mots = ligne.split()
                     if len(mots) >= 3:
-                        # Affichez les trois premiers mots sans mise en forme spéciale
                         mots_affichage = " ".join(mots[:3])
-                        etiquette_mots.config(text=f" {mots_affichage} ...", fg="green", font=None)  # Texte noir, police par défaut
+                        etiquette_mots.config(text=f" {mots_affichage} ...", fg="green", font=None)
                     else:
-                        # Affichez tous les mots s'il y en a moins de trois
-                        etiquette_mots.config(text=f"Tous les mots: {' '.join(mots)}", fg="black", font=None)  # Texte noir, police par défaut
+                        etiquette_mots.config(text=f" {' '.join(mots)} ...", fg="green", font=None)
                 else:
-                    # Affichez "ERREUR" en rouge sans mise en forme spéciale (police par défaut)
                     etiquette_mots.config(text=get_translation("error_label"), fg="red", font=None)
         except ValueError:
-            # Affichez "ERREUR" en rouge sans mise en forme spéciale (police par défaut)
             etiquette_mots.config(text=get_translation("error_label"), fg="red", font=None)
     else:
-        # Le champ est vide, donc effacez le texte d'affichage
         etiquette_mots.config(text="")
 
 # Fonction pour afficher l'aide avec traduction
 def afficher_aide():
-    help_text = get_translation("help")  # Utilisez la langue actuelle
+    help_text = get_translation("help")
     # Ouvrez une boîte de dialogue avec le texte d'aide traduit
     scribus.messageBox(get_translation("help_button"), help_text)
 
@@ -198,20 +184,15 @@ def importer_tout():
         with open(csv_file, "r", encoding="utf-8") as file:
             contenu = file.read()
 
-            # Créez un cadre de texte dans Scribus avec les dimensions spécifiées
             text_frame = scribus.createText(x, y, largeur, hauteur)
 
-            # Insérez le contenu entier du fichier dans le cadre de texte
             scribus.setText(contenu, text_frame)
 
-            # Mettez à jour la position verticale pour la prochaine ligne
-            y += hauteur + 10  # Décalez verticalement pour laisser de l'espace entre les cadres
+            y += hauteur + 10
 
-            # Vérifiez si le cadre texte dépasse la hauteur de la page, et passez à la page suivante si nécessaire
             hauteur_page = scribus.getPageHeight()
             if y + hauteur > hauteur_page:
-                y = 20  # Réinitialisez la position à l'intérieur de la page
-                # Si nécessaire, ajoutez du code pour passer à la page suivante ici
+                y = 20
 
         scribus.messageBox("Succès", "Le contenu du fichier a été importé avec succès.", icon=scribus.ICON_INFORMATION)
     except Exception as e:
@@ -224,13 +205,11 @@ def actualiser_boutons(event=None):
     
     if contenu_champ == "":
         if nombre_lignes_presentes and nombre_lignes_presentes != "":
-            # Activer le bouton "Importer Tout" si des lignes sont détectées
             bouton_importer_tout.config(state=tk.NORMAL)
         else:
             bouton_importer_tout.config(state=tk.DISABLED)
         bouton_importer.config(state=tk.DISABLED)
         
-        # Activer le bouton "Sppr" si le champ de saisie contient des caractères non numériques
         if not est_chiffres(contenu_champ):
             bouton_sppr.config(state=tk.NORMAL)
         else:
@@ -238,15 +217,22 @@ def actualiser_boutons(event=None):
         
         bouton_plus.config(state=tk.NORMAL)
     elif contenu_champ.isdigit():
-        bouton_importer.config(state=tk.NORMAL)
+        if nombre_lignes_presentes:
+            lignes_detectees = int(nombre_lignes_presentes.split("(")[1].split(")")[0])
+            if int(contenu_champ) > lignes_detectees:
+                bouton_importer.config(state=tk.DISABLED)
+            else:
+                bouton_importer.config(state=tk.NORMAL)
+        
         bouton_sppr.config(state=tk.NORMAL)
         bouton_importer_tout.config(state=tk.DISABLED)
         bouton_plus.config(state=tk.DISABLED)
     else:
         bouton_importer.config(state=tk.DISABLED)
-        bouton_sppr.config(state=tk.NORMAL)  # Activer le bouton "Sppr" lorsque des caractères non numériques sont présents
+        bouton_sppr.config(state=tk.NORMAL)
         bouton_importer_tout.config(state=tk.DISABLED)
         bouton_plus.config(state=tk.DISABLED)
+
         
 # Mettez à jour les textes de l'interface lors du changement de langue
 def update_interface_texts():
@@ -259,7 +245,7 @@ def update_interface_texts():
     bouton_aide.config(text=get_translation("help_button"))
     etiquette_developpe_par.config(text=get_translation("developer_label"))
     etiquette_nombre_lignes.config(text=get_translation("line_count_label"))
-    etiquette_mots.config(text=get_translation("error_label"))
+    #etiquette_mots.config(text=get_translation("error_label"))
     afficher_nombre_lignes()
 
 # Lorsque l'utilisateur change la langue, enregistrez-la dans les préférences
@@ -338,6 +324,7 @@ bouton_decrementer.pack(side=tk.LEFT, padx=2)
 # Bouton pour incrémenter le numéro de ligne en continu
 bouton_incrementer = tk.Button(cadre_boutons_deplacement, text="------>", command=incrementer_continu, repeatdelay=500, repeatinterval=100, height=1)
 bouton_incrementer.pack(side=tk.LEFT, padx=2)
+
 
 # Bouton pour importer une ligne
 bouton_importer = tk.Button(fenetre, text=get_translation("import_button"), command=importer_ligne, state=tk.DISABLED)
